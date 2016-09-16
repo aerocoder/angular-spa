@@ -11,14 +11,16 @@
     $scope.lunchMenu = "";
 
     $scope.displayMessage = function() {
-      if ($scope.lunchMenu == "") {
+      if ($scope.lunchMenu === "") {
         $scope.message = "Please enter data first";
         return;
       }
 
-      var numItems = $scope.lunchMenu.split(',').filter(function(food) {
-        return food != ""
-      }).length;
+      var items = $scope.lunchMenu.split(',').filter(function(food) {
+        return food.trim().length > 0;
+      });
+
+      var numItems = items.length;
 
       if (numItems === 0) {
         $scope.message = "Please enter data first";
@@ -28,10 +30,6 @@
       } else {
         $scope.message = "Too much!";
       }
-console.log(numItems);
     };
-
-    //
-    // $scope.message = items
   }
 })();
