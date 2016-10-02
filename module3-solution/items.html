@@ -1,0 +1,10 @@
+<div class="col-md-12">
+  <ul>
+    <li ng-repeat="item in narrowList.items.found" >
+      <strong>Name: </strong>{{item.name}}, <strong>Short name:</strong> {{item.short_name}}, <strong>Description:</strong> {{item.description}}
+      <!-- <button ng-click="narrowList.items.removeItem($index);">Don't want this one!</button> -->
+      <button ng-click="narrowList.onRemove({ index: $index });">Don't want this one!</button>
+      <!-- <button ng-click="menu.onRemove({ index: $index });">Don't want this one!</button> -->
+    </li>
+  </ul>
+</div>
